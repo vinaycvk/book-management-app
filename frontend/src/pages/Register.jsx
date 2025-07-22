@@ -10,6 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
 
     const handleLogin = () => {
         const data = {
@@ -18,7 +19,7 @@ const Register = () => {
         }
         setLoading(true)
         axios
-            .post('http://localhost:5555/api/v1/users/register', data)
+            .post(`${API_BASE_URL}/api/v1/users/register`, data)
             .then((res) => {
                 localStorage.setItem('token', res.data.token);
                 console.log(res.data.token)

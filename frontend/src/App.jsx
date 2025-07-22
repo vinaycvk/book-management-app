@@ -5,8 +5,8 @@ import CreateBook from './pages/CreateBook'
 import DeleteBook from './pages/DeleteBook'
 import EditBook from './pages/EditBook'
 import ShowBook from './pages/ShowBook'
-import LoginPage from './pages/loginPage'
-import Register from './pages/register'
+import LoginPage from './pages/LoginPage'
+import Register from './pages/Register'
 import ProtectedRoute from './pages/ProtectedRoute'
 
 const App = () => {

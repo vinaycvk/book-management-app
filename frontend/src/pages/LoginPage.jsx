@@ -12,6 +12,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
 
     const handleLogin = () => {
         const data = {
@@ -20,7 +21,7 @@ const LoginPage = () => {
         }
         setLoading(true)
         axios
-            .post('http://localhost:5555/api/v1/users/login', data)
+            .post(`${API_BASE_URL}/api/v1/users/login`, data)
             .then((res) => {
                 localStorage.setItem('token', res.data.token); 
                 console.log(res.data.token)

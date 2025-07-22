@@ -8,6 +8,7 @@ const DeleteBook = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const { id } = useParams();
+   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   const handleDeletebook = () => {
     setLoading(true)
@@ -19,7 +20,7 @@ const DeleteBook = () => {
     };
 
     axios
-      .delete(`http://localhost:5555/api/v1/books/${id}`, authHeader)
+      .delete(`${API_BASE_URL}/api/v1/books/${id}`, authHeader)
       .then(() => {
         setLoading(false)
         navigate('/')

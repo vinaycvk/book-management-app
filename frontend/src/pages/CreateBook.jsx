@@ -10,6 +10,7 @@ const CreateBook = () => {
   const [publishYear, setPublishYear] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   const handleSaveBook = () => {
     const data = {
@@ -28,7 +29,7 @@ const CreateBook = () => {
 
     setLoading(true);
     axios
-      .post('http://localhost:5555/api/v1/books', data, authHeader)
+      .post(`${API_BASE_URL}/api/v1/books`, data, authHeader)
       .then(() => {
         setLoading(false);
         navigate('/')

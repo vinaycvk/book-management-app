@@ -11,11 +11,12 @@ const EditBook = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const { id } = useParams();
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     setLoading(true)
     axios
-      .get(`http://localhost:5555/api/v1/books/${id}`)
+      .get(`${API_BASE_URL}/api/v1/books/${id}`)
       .then((response) => {
         setAuthor(response.data.author)
         setTitle(response.data.title)
@@ -45,7 +46,7 @@ const EditBook = () => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:5555/api/v1/books/${id}`, data, authHeader)
+      .put(`${API_BASE_URL}/api/v1/books/${id}`, data, authHeader)
       .then(() => {
         setLoading(false);
         navigate('/')

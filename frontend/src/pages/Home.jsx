@@ -17,11 +17,12 @@ const Home = () => {
   const [showType, setShowType] = useState('table');
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/api/v1/books')
+      .get(`${API_BASE_URL}/api/v1/books`)
       .then((respose) => {
         setBooks(respose.data.data);
         setLoading(false)
