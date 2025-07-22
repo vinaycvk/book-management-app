@@ -1,9 +1,12 @@
 import express, { response } from 'express'
-import { PORT, mongoDBURL } from './config.js';
+import { mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 // import { Book } from './models/bookModel.js';
 import bookRoute from './routes/bookRoute.js';
 import userRoutes from './routes/userRoutes.js';
+
+const PORT = process.env.PORT || 5555 
+
 
 import cors from 'cors'
 
